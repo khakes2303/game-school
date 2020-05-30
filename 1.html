@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style>
+		html{
+			height: 100%;
+		}
+		@font-face{
+			src:url(18473.ttf);
+			font-family: my-font;
+		}
+		body{
+			font-family: my-font;
+			color: white;
+			height: 100%;
+		}
+		/*главная*/
+		.kabinet{
+			position: absolute;
+			top:40%;
+			left: 20%;
+			background-color: blue;
+			height: 50px;
+			width: 190px;
+		}
+		.main_player{
+			position: absolute;
+			top:50%;
+			left: 50%;
+			transition:  0.8s;
+			height: 150px;
+			width: 120px;
+		}
+		.sportZal{
+			position: absolute;
+			top:60%;
+			left: 80%;
+			background-color: green;
+			height: 100px;
+			width: 150px;
+		}
+		/*2 локация*/
+		.loc2_teacher {
+			height: 150px;
+			width: 100px;
+			margin-left: 30%; 
+			position: absolute; 
+			margin-top: 30%;
+		}
+		.loc2_talk {
+			position: absolute;
+			width: 300px;
+			margin-left: 30%;
+			display: none;		}
+
+		.loc2_pravilno{
+			background-color: gray; width: 100px; position: absolute; display: none
+		}
+
+		.loc2_player {
+			margin-left: 4%; margin-top: 40%; position: absolute;height: 150px;
+			width: 100px;
+		}
+
+		.loc2_shpors {
+			background-color: gray; width: 100px; position: absolute;
+		}
+
+		.loc2_talkText {
+			position: absolute;
+			width: 200px;
+			margin-left: 38%;
+			margin-top: 6%;
+			display: none;
+			color: black
+		}
+		.loc2_timeSize {
+		font-size: 30px
+		}
+		.loc2_pole {
+			margin-top: 25%;
+			position: absolute;
+		}
+		/*1 локация*/
+		/* плеер */
+		.loc1_player {
+			position: absolute;
+			top:80%;
+			left: 10%;
+			display: flex;
+			height: 110px;
+			width: 80px;
+			background-image: url(loc1/uchenik.png);
+			background-size: 100% 100%;
+		}
+		/* наковальня */
+		.loc1_vorota {
+			height: 210px;
+			width: 280px;
+			position: absolute;
+			left: 60%;
+			top: 50%;
+			background-image: url(loc1/football.png);
+			background-size: 100% 100%;
+		}
+		/* меч */
+		.loc1_ball {
+			height: 50px;
+			width: 50px;
+			position: absolute;
+			left: 20%;
+			top: 90%;
+			background-image: url(loc1/ball.png);
+			background-size: 100% 100%;
+			transition:  0.8s;
+		}
+		.myach {
+			width: 100px; border: white 2px solid; display: none
+		}
+
+		.shpora {
+			width: 100px; border: white 2px solid; display: none;
+		}
+	</style>
+</head>
+<body style="background-image:url(lobby.png); background-size: cover">
+	<div class="main">
+		<div  class="kabinet border border-danger"><h1 style="color: brown">Кабинет</h1></div>
+		<div  class="sportZal border border-primary"><h1 style="color: brown">Спорт зал</h1>"</div>
+		<img src="uchenik.png" alt="" class="main_player">
+		<div class="myach">
+			<img src="ball.png" style="width: 100px; height: 100px;">
+		</div>
+		<div class="shpora">
+			<img src="moneta.png" style="width: 100px; height: 100px;">
+		</div>
+	</div>
+	
+	<div class="location2" style="display: none">
+		<h6 class="text-light loc2_timeSize">Время: <span class="loc2_timeText ">10</span></h6>
+		<h4 class="text-white" style="position: absolute; width: 300px; height: 100px; ;margin-top: 25%; margin-left: 45%;">2(12+47):2 =</h4>
+
+		<div class="loc2_teacher"></div>
+
+		<div class="loc2_ques" style="margin-left: 2%; position: absolute;  margin-top: 25%;">	 
+		 </div>
+		<div  style="display: flex; position: absolute; margin-top: 37%; margin-left: 45%">
+			 <div class="loc2_shpors" style="display: none">Шпора 1: 118</div>
+			 <div class="loc2_shpors" style="margin-left: 150px; display: none">Шпора 2: 45</div>
+			 <div class="loc2_shpors" style="margin-left: 300px; display: none">Шпора 3: 12</div>
+			 <div class="loc2_shpors" style="margin-top: 140px; display: none">Шпора 4: 47</div>
+			 <div class="loc2_shpors" style="margin-top: 140px; margin-left: 150px; display: none">Шпора 5: 654</div>
+			 <div class="loc2_pravilno" style="margin-top: 140px; margin-left: 300px; display: none">Шпора 6: 59</div>
+		</div>
+
+
+		<img src="loc2/uchenik.png" class="loc2_player">
+		<img src="loc2/teacher.png" class="loc2_teacher">
+		<img src="loc2/talk.png" class="loc2_talk">
+		<h5 class="loc2_talkText" >Реши это уравнение.</h5>
+
+	</div>
+	<div class="location1" style="display: none">	
+		<!-- комната -->
+		<div class="loc1_game1">
+			<!-- спан для времени -->
+			<h4>Время: <span class="loc1_timeTxt"></span></h4>
+			<!-- спан для счета -->
+			<h4>Счёт: <span class="loc1_scoreTxt"></span></h4>
+			<!-- кузнец -->
+			<div class="loc1_vorota">	
+			</div>
+			<!-- наковальня -->
+			<div class="loc1_ball">	
+			</div>
+			<!-- плеер -->
+			<div class="loc1_player">	
+			</div>
+		</div>
+	</div>
+		
+		
+
+	<script>
+    let sportZal = document.querySelector(".sportZal");
+    let kabinet = document.querySelector(".kabinet");
+    let main_block = document.querySelector(".main");
+    let location1 = document.querySelector(".location1");
+    let location2 = document.querySelector(".location2");
+    let body = document.querySelector("body");
+    let shpora = document.querySelector("shpora");
+    let main_player = document.querySelector(".main_player");
+    let myach = document.querySelector("myach");
+  	sportZal.onclick = function(){
+  		main_player.style.top = "60%";
+        main_player.style.left = "80%";
+
+        let changeLocation1 = function (){
+            main_block.style.display = "none";
+            location1.style.display = "block";
+            body.style.backgroundImage = "url(loc1/sport.png)";
+            alert("Ты должен нажимать на мячик ровно 28 раз, чтобы забить гол. Иначе проиграешь! У тебя 5 секунд")
+		}
+		setTimeout(changeLocation1, 1000);
+
+    	let loc1_vorota = document.querySelector(".loc1_vorota");
+    	let loc1_ball = document.querySelector(".loc1_ball");
+    	let loc1_scoreTxt = document.querySelector(".loc1_scoreTxt");
+    	let loc1_timeTxt = document.querySelector(".loc1_timeTxt");
+		let time = 5;
+		loc1_timeTxt.innerHTML = time;
+		let point = 0;
+		loc1_scoreTxt.innerHTML = point;
+		loc1_ball.style.left = "20%";
+		loc1_ball.style.top = "90%";
+		let showMessage = function(){
+			let timer = function() {
+				time = time - 1;
+				loc1_timeTxt.innerHTML = time;
+				if (time == 0) {
+					loc1_ball.style.top = "20%";
+					loc1_ball.style.left = "100%";
+					alert("Время вышло. Поробуй заново");
+					clearInterval(stop);
+					let hide = function(){
+						location1.style.display = "none";
+					    body.style.backgroundImage = "url(lobby.png)";
+					    main_block.style.display = "block";
+					}
+					setTimeout(hide, 1000); 
+				}
+			}
+			loc1_ball.onclick = function(){
+				point = point + 1;
+				loc1_scoreTxt.innerHTML = point;
+				if (point == 28) {
+					alert("Ты забил гоол");
+					clearInterval(stop);
+					loc1_ball.style.top = "54%";
+					loc1_ball.style.left = "64%";
+					let wide = function(){
+						location1.style.display = "none";
+					    body.style.backgroundImage = "url(lobby.png)";
+					    main_block.style.display = "block";
+					}
+					setTimeout(wide, 1000); 
+				}
+			}
+			let stop = setInterval(timer,1000);
+		}
+		setTimeout(showMessage, 3000); 
+		
+		kabinet.onclick = function(){
+	  		main_player.style.top = "40%";
+	        main_player.style.left = "20%";
+
+	        let changeLocation2 = function (){
+	            main_block.style.display = "none";
+	            location2.style.display = "block";
+	            body.style.backgroundImage = "url(loc2/kab.png)";
+			}
+			setTimeout(changeLocation2, 1000);
+
+			let loc2_talk = document.querySelector(".loc2_talk");
+			let loc2_talkText = document.querySelector(".loc2_talkText");
+			let loc2_shpors = document.querySelectorAll(".loc2_shpors");
+			let loc2_pravilno = document.querySelector(".loc2_pravilno");
+			let loc2_teacher = document.querySelector(".loc2_teacher");
+			let loc2_timeText = document.querySelector(".loc2_timeText");
+			let time1 = 10;
+			loc2_timeText.innerHTML = time1;
+
+			let showMessage1 = function(){
+				loc2_talk.style.display = "block";
+				loc2_talkText.style.display = "block";
+				let showShors = function(){
+					alert("У тебя 10 секунд! Смотри шпоры, пока учитель не смотрит");
+					for( let n=0; n<5; n=n+1){
+						loc2_shpors[n].style.display = "block";
+					}
+					loc2_pravilno.style.display = "block";
+					loc2_talk.style.display = "none";
+					loc2_talkText.style.display = "none";
+					let timer1 = function() {
+						time1 = time1 - 1;
+						loc2_timeText.innerHTML = time1;
+						if (time1 == 0) {
+							alert("Время вышло.");
+							clearInterval(stop);
+						}
+					}
+					loc2_pravilno.onclick = function(){
+						alert("Молодец! Ты решил!");
+						clearInterval(stop);
+			            location2.style.display = "none";
+			            body.style.backgroundImage = "url(win.png)";
+			            loc2_shpors[n].style.display = "none";
+					}
+					for( let i=0; i<5; i=i+1){
+						loc2_shpors[i].onclick = function(){
+							alert("Не правильно. Попробуй еще!");
+							clearInterval(stop);
+							main_block.style.display = "block";
+				            location2.style.display = "none";
+				            body.style.backgroundImage = "url(lobby.png)";
+				            loc2_shporsAll [i].style.display = "none";
+						}
+					}
+					let stop = setInterval(timer1,1000);
+
+				}
+				setTimeout(showShors, 2000); 
+			}
+			setTimeout(showMessage1, 1000); 
+		}
+    }
+
+    	
+	</script>
+</body>
+</html>
